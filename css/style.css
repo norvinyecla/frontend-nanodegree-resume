@@ -1,7 +1,7 @@
 * {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .clearfix {
@@ -23,7 +23,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #1F2041;
   line-height: 29px;
   padding: 10px;
 }
@@ -38,7 +38,7 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4A4A4A;
+  color: #4B3F72;
   line-height: 17px;
 }
 
@@ -82,7 +82,7 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #FBFBFB;
   line-height: 28px;
 }
 
@@ -99,6 +99,10 @@ a {
   color: #417B5A;
 }
 
+h2.orange {
+  color: #E4E4E4;
+}
+
 .white-text {
   font-weight: bold;
   color: #FFFFFF;
@@ -111,7 +115,7 @@ a {
 }
 
 .dark-gray {
-  background-color: #D8E2DC;
+  background-color: #E7EDE9;
 }
 
 /* TODO: Replace with image later */
@@ -213,3 +217,5 @@ span {
     display: block;
   }
 }
+
+

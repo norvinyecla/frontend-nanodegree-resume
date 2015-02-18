@@ -1,6 +1,6 @@
 var bio = {
 	"name":"Norvin Yecla", 
-	"role": "Frontend Web Developer", 
+	"role": "Software Developer", 
 	"contacts": {
         "contact-generic": "I do not know what to put in here",
 		"email":"ngyecla@outlook.com", 
@@ -12,7 +12,7 @@ var bio = {
 	},
 	
 	"picture-url":"http://placehold.it/150x150", 
-	"welcome-message":"Hello!", 
+	"welcome-message":"Hello! My name is Norvin, and I'm a software developer. My interests lie in mobile and frontend web development. ", 
 	"skills":["HTML", "CSS", "Javascript", "PHP", "Python", "Git"]
 };
 
@@ -109,7 +109,7 @@ var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedHeader = formattedName + formattedRole;
 
 var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contacts["contact-generic"]);
-var formattedEmail = HTMLmobile.replace("%data%", bio.contacts.email);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);

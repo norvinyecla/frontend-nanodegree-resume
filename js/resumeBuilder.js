@@ -7,9 +7,10 @@ var bio = {
 		"mobile": "+63926 756 8101", 
 		"twitter": "norvinyecla", 
 		"github": "norvinyecla", 
-		"blog": "blog.norvinyecla.tk"
+		"blog": "blog.norvinyecla.tk",
+        "location": "Dasmariñas City",
 	},
-	"location": "Dasmarinas City, Cavite | Quezon City, Metro Manila",
+	
 	"picture-url":"http://placehold.it/150x150", 
 	"welcome-message":"Hello!", 
 	"skills":["HTML", "CSS", "Javascript", "PHP", "Python", "Git"]
@@ -20,59 +21,86 @@ var work = {
 		"employer": "GlyphStudios Inc",
 		"position": "Software Engineer",
 		"years": "May 2013 to present",
-		"city": "Ortigas Center, Pasig City, Metro Manila",
+		"location": "Ortigas Center, Pasig City",
         "description": "Maintained legacy SMS applications using a combination of WAP, MMS and SMS technologies; <br>Developed content management systems for company's internal use; <br> Assisted in creating, maintaining and creating SMS and voice applications using custom PHP APIs, libraries and PBX"
 	},
 	{
 		"employer": "KLab Cyscorpions",
 		"position": "Mobile Apps Intern",
 		"years": "Apr 2012 to May 2012",
-		"city": "Legaspi Village, Makati City, Metro Manila",
+		"location": "Legazpi Village, Makati City",
         "description": "Developed a video recording and a location service Android app; <br> Tested a set of alpha-version mobile Android apps against company's quality metrics"
 	}
-]
+],
+    "display": function(){
+        for (job in work.jobs){
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].position);
+        var formattedYears = HTMLworkDates.replace("%data%", work.jobs[job].years);
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedEmployer + formattedJobTitle + formattedYears + formattedLocation + formattedDescription);
+    }
+}
 };
+
 var projects = {
 	"projects" : [
 		{
-			"title": "Coral Identification System", 
+			"title": "Coral Identification System - Undergraduate Research Project", 
 			"dates": "Jun 2012 to Apr 2013",
 			"description": "Created an Android app for crowdsourcing information to be fed into a CMS and an image classification program"
 		},
-		{
-			"title": "JeePS",
-			"dates": "Jun 2012 to Oct 2012", 
-			"description": "Created an Android app for showing jeepney routes inside Makati City"
-		}
-	]
+        {
+            "title": "JeePS 2012",
+            "dates": "Jun 2012 to Oct 2012", 
+            "description": "Created an Android app for showing jeepney routes inside Makati City"
+        }
+		
+	],
+    "display": 
+        function (){
+        for (project1 in projects.projects){
+            var formattedProjTitle = HTMLprojectTitle.replace("%data%",projects.projects[project1].title);
+            var formattedProjDates = HTMLprojectDates.replace("%data%", projects.projects[project1].dates);
+            var formattedProjDesc = HTMLprojectDescription.replace("%data%", projects.projects[project1].description);
+            // var formattedProjImg =  HTMLprojectImage.replace("%data%", project.image);
+
+            $("#projects").append(HTMLprojectStart)
+            $(".project-entry:last").append(formattedProjTitle + formattedProjDates + formattedProjDesc);
+        }
+    }
 };
 
 var education = { 
 	"schools": [
 	{
 	"name": "University of the Philippines Diliman",
-	"city": "Quezon City",
-	"degree": "Bachelors",
+	"location": "Diliman, Quezon City",
+	"degree": "Bachelor's Degree",
 	"major": "Computer Science",
 	"years": "2009 to 2014"
 	}
-	]
+	],
+    "display": function(){
+        for (school in education.schools){
+            var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name)
+            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree)
+            var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].years)
+            var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location)
+            var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major)
+
+            $("#education").append(HTMLschoolStart)
+            $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree + formattedSchoolDates + formattedSchoolLocation + formattedSchoolMajor)
+        }
+    }
 };
 
-function displayWork(){
-
-    for (job in work.jobs){
-    	$("#workExperience").append(HTMLworkStart);
-
-    	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    	var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].position);
-        var formattedYears = HTMLworkDates.replace("%data%", work.jobs[job].years);
-        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].city);
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    	$(".work-entry:last").append(formattedEmployer + formattedJobTitle + formattedYears + formattedLocation + formattedDescription);
-    }
-
-    
+function inName(fullname){
+    var names = fullname.trim().split(" ");
+    return names[0][0].toUpperCase() + names[0].slice(1) + " " +  names[1].toUpperCase();
 }
 
 
@@ -85,19 +113,21 @@ var formattedEmail = HTMLmobile.replace("%data%", bio.contacts.email);
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
-var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
 var formattedBiopic = HTMLbioPic.replace("%data%", bio["picture-url"]);
 var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio["welcome-message"]);
 
-$("#header").append(formattedHeader);
+$("#header").prepend(formattedHeader);
+
+// $("#topContacts").append(formattedContactGeneric);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedBlog);
+$("#topContacts").append(formattedLocation);
+
 $("#header").append(formattedBiopic);
-$("#header").append(formattedContactGeneric);
-$("#header").append(formattedEmail);
-$("#header").append(formattedTwitter);
-$("#header").append(formattedGithub);
-$("#header").append(formattedBlog);
-$("#header").append(formattedLocation);
 $("#header").append(formattedWelcomeMsg);
 
 if (bio.skills.length != 0){
@@ -108,8 +138,11 @@ if (bio.skills.length != 0){
     }
 }
 
-displayWork();
+work.display();
+education.display();
+projects.display();
+
+// $('#main').append(internationalizeButton);
 
 
-
-// // $("#main").append(bio);
+$('#mapDiv').append(googleMap);

@@ -3,11 +3,11 @@ var bio = {
 	"role": "Software Developer", 
 	"contacts": {
         "contact-generic": "I do not know what to put in here",
-		"email":"ngyecla@outlook.com", 
+		"email":"norvin@norvinyecla.com", 
 		"mobile": "+63926 756 8101", 
 		"twitter": "norvinyecla", 
 		"github": "norvinyecla", 
-		"blog": "blog.norvinyecla.tk",
+		"blog": "blog.norvinyecla.com",
         "location": "Dasmariñas City",
 	},
 	

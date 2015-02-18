@@ -121,11 +121,9 @@ var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio["welcome-message"
 $("#header").prepend(formattedHeader);
 
 // $("#topContacts").append(formattedContactGeneric);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedBlog);
-$("#topContacts").append(formattedLocation);
+$("#topContacts").append(formattedEmail + formattedTwitter + formattedGithub + formattedBlog + formattedLocation);
+
+$("#footerContacts").append(formattedEmail + formattedTwitter + formattedGithub + formattedBlog + formattedLocation);
 
 $("#header").append(formattedBiopic);
 $("#header").append(formattedWelcomeMsg);
